@@ -1,12 +1,12 @@
 class OrqestraDev < Formula
   desc "AI-powered SDLC orchestration CLI (dev channel)"
   homepage "https://orqestra.work"
-  version "0.9.30.dev20260523152329"
+  version "0.9.30.dev20260524072006"
 
   on_macos do
     on_arm do
       url "https://github.com/orqestraai/orqestra-releases/releases/download/latest-dev/orqestra-macos-arm64"
-      sha256 "fcf7ecdd45e0689f50d912489459bfe4a96a230ba3adf6d0e0bdc2c0598bae8b"
+      sha256 "aa0179a7f40f1bc6e457803330e2d4b1dc43345d5c49154b2b319fb0bfe8b6a0"
     end
   end
 
