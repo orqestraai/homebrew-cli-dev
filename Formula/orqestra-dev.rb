@@ -1,12 +1,12 @@
 class OrqestraDev < Formula
   desc "AI-powered SDLC orchestration CLI (dev channel)"
   homepage "https://orqestra.work"
-  version "0.9.33.dev20260617113336"
+  version "0.9.33.dev20260617123927"
 
   on_macos do
     on_arm do
       url "https://github.com/orqestraai/orqestra-releases/releases/download/latest-dev/orqestra-macos-arm64.tar.gz"
-      sha256 "504cb5d741db8dd18ac4133a66b42bda76b1f4432d115f0e32df72f47fb4b134"
+      sha256 "2807572448b197da2aadd1ccc8fdb281cba2bad18ac73acdd771ed5061c0fe0f"
     end
   end
 
@@ -14,6 +14,11 @@ class OrqestraDev < Formula
     # Homebrew unpack flattens the single top-level `orqestra/` dir from the tarball.
     (libexec/"orqestra").install "_internal", "orqestra"
     bin.install_symlink libexec/"orqestra"/"orqestra" => "orqestra-dev"
+  end
+
+  def fix_dynamic_linkage
+    # PyInstaller bundle resolves bundled .so files via @rpath at runtime;
+    # Homebrew relocation fails on libs without header padding and isn't needed.
   end
 
   def caveats
